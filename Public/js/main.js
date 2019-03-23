@@ -1,15 +1,15 @@
 $(function () {
 	"use strict";
 
-	if (!/(www.qqyy.com|tool.liumingye.cn|lab.liumingye.cn)/i.test(location.href)) {
-		location.href = 'http://tool.liumingye.cn/music/';
-	}
+	// if (!/(www.qqyy.com|tool.liumingye.cn|lab.liumingye.cn)/i.test(location.href)) {
+		// location.href = 'http://tool.liumingye.cn/music/';
+	// }
 
-	$.ajax({
-		url: "https://hm.baidu.com/hm.js?c7fa9b4e62f83653d8d7d694f80aadfd",
-		dataType: "script",
-		cache: true
-	});
+	// $.ajax({
+		// url: "https://hm.baidu.com/hm.js?c7fa9b4e62f83653d8d7d694f80aadfd",
+		// dataType: "script",
+		// cache: true
+	// });
 
 	// DOM缓存
 	var $cache = [];
@@ -652,18 +652,8 @@ $(function () {
 				}
 				var parm = 'text/' + window.btoa(utf8.encode(text)).replace(/\//g, "*") + '/page/' + page + '/type/' + type;
 
-				var random = parseInt(Math.random() * 2, 10) + 1;
-				var cdn = '';
-				if (random === 2) {
-					cdn = 'http://lab.liumingye.cn/api/';
-				}
-
-				if (/www.qqyy.com/i.test(location.href)) {
-					cdn = '';
-				}
-
 				$.ajax({
-					url: cdn + 'ajax/search/' + parm + '/token/' + md5(parm + 'tool.liumingye.cn'),
+					url: 'ajax/search/' + parm + '/token/' + md5(parm + 'tool.liumingye.cn'),
 					success: function success(res) {
 						if (res.code === 200) {
 							var data = res.data;
